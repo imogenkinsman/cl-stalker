@@ -22,4 +22,4 @@
 config/database.yml
 
 config/settings.yml
-config/secret_token.rb
+config/initializers/secret_token.rb
