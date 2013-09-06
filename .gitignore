@@ -21,4 +21,5 @@
 # Ignore database.yml
 config/database.yml
 
-config/
+config/settings.yml
+config/secret_token.rb
