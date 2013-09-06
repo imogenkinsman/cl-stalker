@@ -11,15 +11,16 @@ task :scrape => :environment do
   host = "https://#{URI.parse(ENV['url']).host}"
 
   results.each do |result|
-    url = result.css('a').first['href']
+    url = host + result.css('a').first['href']
     post_id = result['data-pid']
     price = result.css('.price').text.gsub(/[^0-9]/,'').to_i
+    description = result.css('a')[1].text
 
-    result_page = Nokogiri::HTML(open(host + url))
-    description = result_page.css('#postingbody').text
+    result_page = Nokogiri::HTML(open(url))
+    content = result_page.css('#postingbody').text
 
     unless Listing.find_by post_id: post_id
-      Listing.create(post_id: post_id, price: price, description: description)
+      Listing.create(post_id: post_id, price: price, description: description, content: content, url: url)
     end
   end
 

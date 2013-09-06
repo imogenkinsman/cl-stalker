@@ -4,6 +4,8 @@ class CreateListings < ActiveRecord::Migration
       t.integer :post_id, :limit => 8
       t.integer :price
       t.text :description
+      t.text :content
+      t.text :url
       t.datetime :datetime
 
       t.timestamps

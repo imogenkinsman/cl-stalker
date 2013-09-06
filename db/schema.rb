@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20130905081238) do
     t.integer  "post_id",     limit: 8
     t.integer  "price"
     t.text     "description"
+    t.text     "content"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
