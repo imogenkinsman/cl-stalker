@@ -9,19 +9,6 @@ Bundler.require(:default, Rails.env)
 # load configuration variabales
 ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
 
-#mailer config
-#Rails::Application.configure do
-#  config.action_mailer.smtp_settings = {
-#      :address   => "smtp.mandrillapp.com",
-#      :port      => '587', # ports 587 and 2525 are also supported with STARTTLS
-#      :enable_starttls_auto => true, # detects and uses STARTTLS
-#      :user_name => ENV['mandrill_username'],
-#      :password  => ENV['mandrill_apikey'], # SMTP password is any valid API key
-#      :authentication => 'plain', # Mandrill supports 'plain' or 'login'
-#      :domain => 'heroku.com', # your domain to identify your server when connecting
-#  }
-#end
-
 module ClStalker
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -40,8 +27,8 @@ module ClStalker
         :address   => "smtp.mandrillapp.com",
         :port      => '587', # ports 587 and 2525 are also supported with STARTTLS
         :enable_starttls_auto => true, # detects and uses STARTTLS
-        :user_name => ENV['mandrill_username'],
-        :password  => ENV['mandrill_apikey'], # SMTP password is any valid API key
+        :user_name => ENV['MANDRILL_USERNAME'],
+        :password  => ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
         :authentication => 'plain', # Mandrill supports 'plain' or 'login'
         :domain => 'heroku.com', # your domain to identify your server when connecting
     }
