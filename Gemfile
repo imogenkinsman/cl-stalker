@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'nokogiri', '~> 1.6.0'
-gem 'mandrill-api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

@@ -5,10 +5,10 @@ require 'uri'
 desc "craigslist scraper"
 task :scrape => :environment do
 
-  doc = Nokogiri::HTML(open(ENV['url']))
+  doc = Nokogiri::HTML(open(ENV['URL'], 'User-Agent' => user_agent, :proxy => "http://#{ENV['PROXY']}"))
   results = doc.css('.row')
 
-  host = "https://#{URI.parse(ENV['url']).host}"
+  host = "https://#{URI.parse(ENV['URL']).host}"
 
   results.each do |result|
     url = host + result.css('a').first['href']
@@ -17,7 +17,7 @@ task :scrape => :environment do
     description = result.css('a')[1].text
 
     user_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.28 Safari/537.36"
-    result_page = Nokogiri::HTML(open(url, 'User-Agent' => user_agent))
+    result_page = Nokogiri::HTML(open(url, 'User-Agent' => user_agent, :proxy => "http://#{ENV['PROXY']}"))
     content = result_page.css('#postingbody').text
 
     unless Listing.find_by post_id: post_id
