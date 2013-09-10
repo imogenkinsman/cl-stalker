@@ -30,4 +30,7 @@ ClStalker::Application.configure do
   # load configuration vars locally for development
   ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
 end

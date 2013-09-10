@@ -4,10 +4,12 @@ one:
   post_id: 1
   price: 1
   description: MyText
-  datetime: 2013-09-03 15:06:11
+  content: MyContent
+  url: SomeUrl
 
 two:
   post_id: 1
   price: 1
   description: MyText
-  datetime: 2013-09-03 15:06:11
+  content: MyContent
+  url: SomeUrl
