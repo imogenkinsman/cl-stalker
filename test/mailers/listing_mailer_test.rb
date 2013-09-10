@@ -5,7 +5,7 @@ class ListingMailerTest < ActionMailer::TestCase
 
   def test_listing_email
     listing = Listing.find_by post_id: 1
-    ListingMailer.new_listing(listing)
+    ListingMailer.new_listing(listing).deliver!
     assert_equal false, ActionMailer::Base.deliveries.empty?
   end
 end

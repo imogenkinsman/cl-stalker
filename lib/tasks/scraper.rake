@@ -22,7 +22,8 @@ task :scrape => :environment do
     content = result_page.css('#postingbody').text
 
     unless Listing.find_by post_id: post_id
-      Listing.create(post_id: post_id, price: price, description: description, content: content, url: url)
+      listing = Listing.create(post_id: post_id, price: price, description: description, content: content, url: url)
+      ListingMailer.new_listing(listing).deliver!
     end
   end
 

@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
   def create
     @listing = Listing.create(listing_params)
-    ListingMailer.deliver_new_listing(@listing)
   end
 
   private
