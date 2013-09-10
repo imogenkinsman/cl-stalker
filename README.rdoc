@@ -17,7 +17,4 @@ example: <tt>heroku config:set URL="http://sfbay.craigslist.org/search/sss/sfc?q
 * DEFAULT - the sender's email address
 * PROXY - you'll need to use a proxy, since CL blocks EC2
 
-
-5. Add a task for 'rake scrape'
-
 That's it! Enjoy :)
