@@ -5,7 +5,7 @@
 </head>
 <body>
 <p>New Craigslist listing: <%= @listing.url %></p>
-<h1><%= @listing.description %> <%= @listing.price == 0 ? "- $#{@listing.price}" : '' %></h1>
+<h1><%= @listing.description %> <%= @listing.price == 0 ? '' : "- $#{@listing.price}" %></h1>
 <p><%= @listing.content %></p>
 </body>
 </html>
