@@ -1,4 +1,5 @@
-== Cl-Stalker
+Cl-Stalker
+==========
 
 Cl-Stalker is Yet Another Craigslist Scraper™ - its purpose is to send emails via SMTP after a listing that matches your search parameters is posted.
 
